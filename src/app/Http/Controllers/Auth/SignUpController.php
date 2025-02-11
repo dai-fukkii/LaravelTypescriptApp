@@ -10,8 +10,8 @@ class SignUpController extends Controller
 
     public function __construct(Repository $repository, Request $request)
     {
-        parent::repository_init($repository);
-        parent::request_init($request);
+        parent::repositoryInit($repository);
+        parent::requestInit($request);
     }
 
     /**

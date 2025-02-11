@@ -39,5 +39,6 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
 
-    <a href="{{ route('login') }}">サインアップ済みの方はこちら</a>
+    サインアップ済みの方はこちら
+    <a href="{{ route('login') }}">ログイン</a>
 @endsection

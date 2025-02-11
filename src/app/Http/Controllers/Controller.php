@@ -8,13 +8,13 @@ abstract class Controller
     protected $request;
     
 
-    public function repository_init($used_repository)
+    public function repositoryInit($used_repository)
     {
         // 毎回リポジトリをインスタンス化するのは面倒なので共通化
         $this->repository = new $used_repository;
     }
 
-    public function request_init($request)
+    public function requestInit($request)
     {
         // 毎回リクエストをインスタンス化するのは面倒なので共通化
         $this->request = $request;

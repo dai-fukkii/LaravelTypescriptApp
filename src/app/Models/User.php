@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
@@ -39,9 +40,9 @@ class User extends Authenticatable
      * メールアドレスに該当するユーザ情報の取得
      *
      * @param string $email
-     * @return Collection
+     * @return Model
      */
-    public static function getUser(string $email):Collection{
+    public static function getUser(string $email):?Model{
         return self::where('email', $email)->first();
 
     }
