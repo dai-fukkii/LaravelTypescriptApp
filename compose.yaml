@@ -43,7 +43,7 @@ services:
       dockerfile: ./infra/docker/mysql/Dockerfile
     ports:
       - target: 3307
-        published: ${DB_PUBLISHED_PORT:-3306}
+        published: ${DB_PUBLISHED_PORT:-3307}
         protocol: tcp
         mode: host
     volumes:
@@ -57,6 +57,7 @@ services:
       - MYSQL_USER=${DB_USERNAME:-phper}
       - MYSQL_PASSWORD=${DB_PASSWORD:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-secret}
+      - MYSQL_TCP_PORT=3307
 
   mailpit:
     image: axllent/mailpit

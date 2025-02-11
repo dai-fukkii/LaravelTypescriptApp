@@ -1,7 +1,11 @@
 @extends('layouts.setup')
 
+
+@section('header-title')
+    <h1>MyApp</h1>
+@endsection
+
 @section('content')
-    <h1>My Trip App</h1>
     <form action="{{ route('signup') }}" method="get">
         <input type="submit" value="サインアップ">
     </form>
