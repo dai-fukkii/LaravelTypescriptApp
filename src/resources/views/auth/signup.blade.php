@@ -11,6 +11,7 @@
 
 
 @section('content')
+    @vite('resources/ts/app.ts')
 
     {{-- サインアップ時の完了・エラーメッセージ --}}
     @section('error-message')
