@@ -11,7 +11,7 @@
 
 
 @section('content')
-    @vite('resources/ts/app.ts')
+    @vite('resources/ts/auth/signup.ts')
 
     {{-- サインアップ時の完了・エラーメッセージ --}}
     @section('error-message')

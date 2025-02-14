@@ -1,11 +1,17 @@
 // vite.config.js
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const glob = require('glob');
+
+// TypeScript ファイルを再帰的に取得
+const tsFiles = glob.sync('resources/ts/**/*.ts');
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/ts/app.ts'],
+            input: tsFiles,
             refresh: true,
         }),
     ],
@@ -15,5 +21,9 @@ export default defineConfig({
         hmr: {
             host: 'localhost',  // ホスト側の IP アドレス
         }
+    },
+    watch: {
+        // 追加: TypeScript ファイルの変更を監視
+        include: 'resources/ts/**/*.ts'
     }
 });
