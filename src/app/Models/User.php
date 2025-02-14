@@ -4,8 +4,10 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 
 class User extends Authenticatable
 {
@@ -18,9 +20,10 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'authority',
     ];
 
     /**
@@ -34,15 +37,30 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * メールアドレスに該当するユーザ情報の取得
      *
-     * @return array<string, string>
+     * @param string $email
+     * @return Model
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+    public static function getUser(string $email):?Model{
+        return self::where('email', $email)->first();
+
+    }
+
+    /**
+     * ユーザ情報の登録
+     *
+     * @param string $username
+     * @param string $email
+     * @param string $password
+     * @param int $authority
+     */
+    public static function postSignUp(string $username, string $email, string $password, int $authority){
+        self::create([
+            'username' => $username,
+            'email' => $email,
+            'password' => $password,
+            'authority' => $authority
+        ]);
     }
 }
