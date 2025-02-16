@@ -7,7 +7,6 @@
     </head>
     <body>
         @include('layouts.header')
-        @include('layouts.message')
-        @yield('content')
+                @yield('content')
     </body>
 </html>

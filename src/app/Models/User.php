@@ -37,12 +37,17 @@ class User extends Authenticatable
     ];
 
     /**
-     * メールアドレスに該当するユーザ情報の取得
+     * メールアドレス(+パスワード)に該当するユーザ情報の取得
      *
      * @param string $email
      * @return Model
      */
-    public static function getUser(string $email):?Model{
+    public static function getUser(string $email, string $password = null):?Model{
+        if(is_null($password)){
+            return self::where('email', $email)
+                ->where('password', $password)
+                ->first();
+        }
         return self::where('email', $email)->first();
 
     }

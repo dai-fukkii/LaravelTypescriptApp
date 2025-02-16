@@ -10,3 +10,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'getLoginPage'])->name('login');
     Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'postLogin']);
 });
+
+Route::group(['prefix' => 'home'], function () {
+    Route::post('/index', [App\Http\Controllers\Home\HomeController::class, 'getHome'])->name('home');
+});

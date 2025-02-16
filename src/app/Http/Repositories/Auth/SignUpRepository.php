@@ -2,6 +2,7 @@
 
 use App\Models\User as Model;
 use App\Http\Repositories\Repository;
+use Illuminate\Support\Facades\Hash;
 
 class SignUpRepository extends Repository{
 
@@ -28,7 +29,7 @@ class SignUpRepository extends Repository{
 
         // ユーザ情報の登録
         try{
-            Model::postSignUp($user_data['username'], $user_data['email'], $user_data['password'], $user_data['authority']);
+            Model::postSignUp($user_data['username'], $user_data['email'], Hash::make($user_data['password']), $user_data['authority']);
             $this->successMessage('登録が完了しました');
         }catch(\Exception $e){
             $this->errorMessage('登録に失敗しました');
