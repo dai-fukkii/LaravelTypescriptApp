@@ -8,10 +8,10 @@ abstract class Controller
     protected $request;
     
 
-    public function repositoryInit($used_repository)
+    public function repositoryInit($repository)
     {
         // 毎回リポジトリをインスタンス化するのは面倒なので共通化
-        $this->repository = new $used_repository;
+        $this->repository = new $repository;
     }
 
     public function requestInit($request)
@@ -29,5 +29,9 @@ abstract class Controller
         }
     }
 
+    public function hasInpput($key)
+    {
+        return $this->request->has($key);
+    }
 
 }

@@ -1,9 +1,13 @@
-<?php
+<?php namespace App\Http\Repositories;
 
-namespace App\Http\Repositories;
+use Illuminate\Support\Facades\Session;
 
-abstract class Repository
-{
+abstract class Repository {
+
+    public function sessionRegenerate()
+    {
+        Session::regenerate();
+    }
 
     public function errorMessage($error_message)
     {
