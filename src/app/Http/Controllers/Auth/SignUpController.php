@@ -25,7 +25,6 @@ class SignUpController extends Controller
 
     /**
      * サインアップ処理
-     * @param Request $request
      * @return View
      */
     public function postSignUp():View{

@@ -34,5 +34,4 @@ abstract class Controller
         return $this->request->has($key);
     }
 
-
 }
