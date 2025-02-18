@@ -22,11 +22,19 @@ class LoginController extends Controller
 
     /**
      * ログイン処理
+     *  @return View
      */
     public function postLogin(){
         $user_data = $this->getInput();
-        $remember = $this->hasInpput('remember');
+        $remember = $this->hasInput('remember');
 
-        $this->repository->postLogin($user_data['email'], $user_data['password'], $remember);
+        $isLogin = $this->repository->postLogin($user_data['email'], $user_data['password'], $remember);
+
+        if($isLogin){
+            return redirect()->route('get_home');
+        }else{
+            return redirect()->route('get_login');
+        }
+
     }
 }

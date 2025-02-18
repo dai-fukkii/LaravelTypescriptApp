@@ -25,12 +25,11 @@ class SignUpController extends Controller
 
     /**
      * サインアップ処理
-     * @return View
      */
-    public function postSignUp():View{
+    public function postSignUp(){
         $user_data = $this->getInput();
         $this->repository->postSignUp($user_data);
 
-        return view('auth.signup');
+        return redirect()->route('get_signup');
     }
 }

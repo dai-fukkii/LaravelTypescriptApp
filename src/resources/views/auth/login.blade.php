@@ -13,7 +13,7 @@
     {{-- サインアップ時の完了・エラーメッセージ --}}
     @include('layouts.message')
     
-    <form action="{{ route('login') }}" method="post" id="login-form">
+    <form action="{{ route('post_login') }}" method="post" id="login-form">
         <input type="email" placeholder="E-mail" name="email" value="{{ old('email') }}" id="email">
         <br>
         <input type="password" placeholder="Password" autocomplete="new-password" name="password" id="password">
@@ -24,5 +24,5 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
     </form>
     サインアップがまだの方はこちら
-    <a href="{{ route('signup') }}">サインアップ</a>
+    <a href="{{ route('get_signup') }}">サインアップ</a>
 @endsection

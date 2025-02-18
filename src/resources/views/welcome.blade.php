@@ -6,10 +6,10 @@
 @endsection
 
 @section('content')
-    <form action="{{ route('signup') }}" method="get">
+    <form action="{{ route('get_signup') }}" method="get">
         <input type="submit" value="サインアップ">
     </form>
-    <form action="{{ route('login') }}" method="get">
+    <form action="{{ route('get_login') }}" method="get">
         <input type="submit" value="ログイン">
     </form>
 @endsection
