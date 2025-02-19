@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\View;
+use Illuminate\View\View;
 
 class LogoutController extends Controller {
 
