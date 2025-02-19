@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [App\Http\Controllers\WelcomeController::class, 'getWelcomePage']);
+Route::get('/', [App\Http\Controllers\WelcomeController::class, 'getWelcomePage'])->name('get_welcome');
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('/signup', [App\Http\Controllers\Auth\SignUpController::class, 'getSignUpPage'])->name('get_signup');

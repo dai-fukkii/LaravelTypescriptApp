@@ -2,7 +2,7 @@
 
 
 @section('header-title')
-    <h1>MyApp</h1>
+    <h1>LibraryApp</h1>
 @endsection
 
 @section('content')
