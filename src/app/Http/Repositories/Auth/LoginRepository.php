@@ -17,11 +17,11 @@ class LoginRepository extends Repository
         // ログイン情報に合致するユーザ情報を取得
         if(Auth::attempt(['email' => $email, 'password' => $password], $remember)){
             $this->sessionRegenerate();
-            return redirect()->intended('home');
+            return true;
         }
         
         $this->errorMessage('メールアドレスまたはパスワードが間違っています');
-        return redirect()->back();
+        return false;
 
     }
 }

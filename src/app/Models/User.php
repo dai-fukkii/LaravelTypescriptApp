@@ -43,7 +43,7 @@ class User extends Authenticatable
      * @return Model
      */
     public static function getUser(string $email, string $password = null):?Model{
-        if(is_null($password)){
+        if(!is_null($password)){
             return self::where('email', $email)
                 ->where('password', $password)
                 ->first();

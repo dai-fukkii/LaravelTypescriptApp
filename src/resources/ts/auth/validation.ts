@@ -2,8 +2,6 @@ import $ from 'jquery';
 
 // サインアップフォームのバリデーション
 $('#signup-form').on('submit', function(event){
-
-    event.preventDefault();
     
     const username : string = $('#username').val();
     const email : string = $('#email').val();
@@ -12,28 +10,32 @@ $('#signup-form').on('submit', function(event){
 
     if(!requiredInput(email, password, username, confirm_password)) {
         alert('すべての情報を入力してください');
+        event.preventDefault();
     }else if(!checkUsernameLength(username)) {
         alert('ユーザー名は4文字以上で入力してください');
+        event.preventDefault();
     }else if(!checkPasswordLength(password)|| !checkPasswordLength(confirm_password)) {
         alert('パスワードは8文字以上で入力してください');
+        event.preventDefault();
     }else if(!checkMatchPassword(password, confirm_password)) {
         alert('パスワードが一致しません');
+        event.preventDefault();
     }
 
 });
 
 // ログインフォームのバリデーション
 $('#login-form').on('submit', function(event){
-
-    event.preventDefault();
     
     const email : string = $('#email').val();
     const password : string = $('#password').val();
 
     if(!requiredInput(email, password)) {
         alert('すべての情報を入力してください');
+        event.preventDefault();
     }else if(!checkPasswordLength(password)) {
         alert('パスワードは8文字以上で入力してください');
+        event.preventDefault();
     }
 
 });

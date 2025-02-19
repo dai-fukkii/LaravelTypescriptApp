@@ -14,7 +14,7 @@
     @include('layouts.message')
 
     {{-- 登録フォーム --}}
-    <form action="{{ route('signup') }}" method="post" id="signup-form">
+    <form action="{{ route('post_signup') }}" method="post" id="signup-form">
         <input type="text" placeholder="username" name="username" value="{{ old('username') }}" id="username">
         <br>
         <input type="email" placeholder="E-mail" name="email" value="{{ old('email') }}" id="email">
@@ -28,5 +28,5 @@
     </form>
 
     サインアップ済みの方はこちら
-    <a href="{{ route('login') }}">ログイン</a>
+    <a href="{{ route('get_login') }}">ログイン</a>
 @endsection

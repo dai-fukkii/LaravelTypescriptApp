@@ -29,7 +29,7 @@ abstract class Controller
         }
     }
 
-    public function hasInpput($key)
+    public function hasInput($key)
     {
         return $this->request->has($key);
     }

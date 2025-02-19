@@ -2,14 +2,14 @@
 
 
 @section('header-title')
-    <h1>MyApp</h1>
+    <h1>LibraryApp</h1>
 @endsection
 
 @section('content')
-    <form action="{{ route('signup') }}" method="get">
+    <form action="{{ route('get_signup') }}" method="get">
         <input type="submit" value="サインアップ">
     </form>
-    <form action="{{ route('login') }}" method="get">
+    <form action="{{ route('get_login') }}" method="get">
         <input type="submit" value="ログイン">
     </form>
 @endsection

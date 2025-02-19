@@ -1,1 +1,1 @@
-a
+<a href="{{ route('get_logout') }}">ログアウト</a>
