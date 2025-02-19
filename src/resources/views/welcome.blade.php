@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+a
     <form action="{{ route('signup') }}" method="get">
         <input type="submit" value="サインアップ">
     </form>
