@@ -17,8 +17,12 @@ ARG GID=1000
 COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
 
 # hadolint ignore=DL3008
+# base の RUN セクション内に修正
 RUN <<EOF
-  apt-get update
+  apt-get update && \
+  curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+  apt-get install -y nodejs && \
+  npm install -g npm && \
   apt-get -y install --no-install-recommends \
     locales \
     git \
@@ -26,23 +30,22 @@ RUN <<EOF
     libzip-dev \
     libicu-dev \
     libonig-dev \
-    default-mysql-client
-  locale-gen en_US.UTF-8
-  localedef -f UTF-8 -i en_US en_US.UTF-8
+    default-mysql-client && \
+  locale-gen en_US.UTF-8 && \
+  localedef -f UTF-8 -i en_US en_US.UTF-8 && \
   docker-php-ext-install \
     intl \
     pdo_mysql \
     zip \
-    bcmath
-  # permission denied bind mount in Linux environment
-  groupadd --gid $GID phper
-  useradd --uid $UID --gid $GID phper
-  mkdir /composer
-  mkdir -p /home/phper/.config/psysh
-  chown phper:phper /composer
-  chown phper:phper /workspace
-  chown phper:phper /home/phper/.config/psysh
-  apt-get clean
+    bcmath && \
+  groupadd --gid $GID phper && \
+  useradd --uid $UID --gid $GID phper && \
+  mkdir /composer && \
+  mkdir -p /home/phper/.config/psysh && \
+  chown phper:phper /composer && \
+  chown phper:phper /workspace && \
+  chown phper:phper /home/phper/.config/psysh && \
+  apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 EOF
 
